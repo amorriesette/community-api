@@ -39,16 +39,6 @@ function convertActivityToMessage(request){
           "type": "mrkdwn",
           "text": actorMessage.trim()
         }
-      },
-      {
-        "type": "image",
-        "title": {
-          "type": "plain_text",
-          "text": "image1",
-          "emoji": true
-        },
-        "image_url": "https://api.slack.com/img/blocks/bkb_template_images/onboardingComplex.jpg",
-        "alt_text": "image1"
       }
     ]
   }
