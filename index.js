@@ -21,7 +21,6 @@ function convertActivityToMessage(request){
   const item = request.fragments.activityInfo;
   const actorName = item.actor.fragments.activityActor.name;
   const actorMessage = item.body.fragments.activityBody.text;
-  console.log(actorMessage);
 
   let slackMessage = {
     "blocks": [
@@ -38,7 +37,7 @@ function convertActivityToMessage(request){
         "type": "section",
         "text": {
           "type": "mrkdwn",
-          "text": actorMessage
+          "text": actorMessage.trim()
         }
       },
       {
