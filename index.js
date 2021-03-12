@@ -39,6 +39,20 @@ function convertActivityToMessage(request){
           "type": "mrkdwn",
           "text": actorMessage.trim()
         }
+      },
+      {
+        "type": "actions",
+        "elements": [
+          {
+            "type": "button",
+            "text": {
+              "type": "plain_text",
+              "text": "View in Community",
+              "emoji": true
+            },
+            "value": "view_in_community"
+          }
+        ]
       }
     ]
   }
