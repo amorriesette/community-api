@@ -21,7 +21,9 @@ function convertActivityToMessage(request){
   const item = request.fragments.activityInfo;
   const actorName = item.actor.fragments.activityActor.name;
   const actorMessage = item.body.fragments.activityBody.text;
+  const groupName = item.parent.fragments.activityActor.name;
 
+  const header = actorName + ' in ' + groupName;
   let slackMessage = {
     "blocks": [
       {
@@ -29,7 +31,7 @@ function convertActivityToMessage(request){
         "elements": [
           {
             "type": "mrkdwn",
-            "text": actorName
+            "text": header
           }
         ]
       },
