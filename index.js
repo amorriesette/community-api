@@ -2,7 +2,7 @@ const { response } = require('express')
 const express = require('express')
 const { message } = require('statuses')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.use(express.json())
 
@@ -17,9 +17,11 @@ app.listen(port, () => {
 
 
 function convertActivityToMessage(request){
+  console.log(request);
   const item = request.fragments.activityInfo;
   const actorName = item.actor.fragments.activityActor.name;
-  const actorMessage = item.body.fragments.activityBody.segments[0].text;
+  const actorMessage = item.body.fragments.activityBody.text;
+  console.log(actorMessage);
 
   let slackMessage = {
     "blocks": [
